@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "datalake-do-zero"
+version = "0.1.0"
+description = ""
+authors = ["Marcus Bragion <viniciusbragion@outlook.pt>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+boto3 = "^1.35.3"
+pandas = "^2.2.2"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
