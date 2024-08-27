@@ -26,27 +26,9 @@ def upload_csv_to_s3():
     )
 
     s3.meta.client.upload_file(
-        Filename="./data/stores.csv",
+        Filename="./data/store.csv",
         Bucket=bucket_name,
-        Key=f"stores-raw/stores_{now}.csv",
+        Key=f"raw/stores_raw_{now}.csv",
     )
-    s3.meta.client.upload_file(
-        Filename="./data/features.csv",
-        Bucket=bucket_name,
-        Key=f"stores-raw/features_{now}.csv",
-    )
-
-
-def check_for_objects_in_s3():
-    s3 = boto3.resource(
-        service_name="s3",
-        region_name=region_name,
-        aws_access_key_id=aws_access_key_id,
-        aws_secret_access_key=aws_secret_access_key,
-    )
-    for obj in s3.Bucket(bucket_name).objects.all():
-        print(obj)
-
 
 upload_csv_to_s3()
-check_for_objects_in_s3()
